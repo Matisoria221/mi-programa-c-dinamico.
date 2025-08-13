@@ -4,14 +4,14 @@
 int main() {
 	int *arr; // Declaramos un puntero a un entero, que apuntará al inicio de nuestro arreglo dinámico
 	int n;    // Variable para almacenar el tamaño deseado del arreglo
-	
+	printf("Versión 2.0\n");
 	printf("Bienvenido al programa de memoria dinamica en C.\n");
 	printf("Ingrese el numero de elementos para el arreglo: ");
 	scanf("%d", &n); // Leemos el tamaño que el usuario desea
 	
 	// Asignacion de memoria dinamica usando malloc
-	// malloc(n * sizeof(int)) solicita 'n' bloques de memoria, cada uno del tamaño de un entero.
-	// (int *) es un 'cast' para indicar que la memoria asignada será tratada como un puntero a entero.
+	malloc(n * sizeof(int)) //solicita 'n' bloques de memoria, cada uno del tamaño de un entero.
+	(int *)// es un 'cast' para indicar que la memoria asignada será tratada como un puntero a entero.
 	arr = (int *) malloc(n * sizeof(int));
 	
 	// Verificar si la asignacion de memoria fue exitosa
@@ -19,6 +19,11 @@ int main() {
 	if (arr == NULL) {
 		printf("Error: No se pudo asignar memoria.\n");
 		return 1; // Terminamos el programa con un código de error
+	}
+	printf("Inicializando y mostrando los elementos del arreglo:\n");
+	for (int i = 0; i < n; i++) {
+		arr[i] = i * 100; // Asignamos un valor simple para el ejemplo
+		printf("Elemento en indice %d: %d\n", i, arr[i]);
 	}
 	
 	printf("Memoria asignada exitosamente para %d enteros.\n", n);
